@@ -1,17 +1,19 @@
-export type role = 'member' | 'admin' | 'root';
+export type Role = 'member' | 'admin' | 'root';
 
-export type status = 'active' | 'pending' | 'rejected' | 'deleted';
+export type Status = 'active' | 'inactive' | 'pending' | 'rejected' | 'banned' | 'deleted';
 
 export class UserEntity {
+  id: bigint;
   uid: string;
   name: string;
   password: string;
   email: string;
-  role: role = 'member';
-  status: status = 'pending';
+  role: Role = 'member';
+  status: Status = 'pending';
   dob: Date;
   phone!: string;
-  constructor(uid: string, name: string, password: string, email: string, dob: Date, phone: string) {
+  constructor(id: bigint, uid: string, name: string, password: string, email: string, dob: Date, phone: string) {
+    this.id = id;
     this.uid = uid;
     this.name = name;
     this.password = password;

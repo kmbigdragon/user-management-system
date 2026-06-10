@@ -2,10 +2,10 @@ import { ExceptionFilter, Catch, ArgumentsHost, HttpException, HttpStatus, Logge
 import { Request, Response } from 'express';
 
 @Catch(HttpException, Error)
-export class HttpExceptionFilter implements ExceptionFilter {
+export class HttpExceptionFilter implements ExceptionFilter<HttpException | Error> {
   private readonly logger = new Logger('ExceptionFilter');
 
-  catch(exception: Error, host: ArgumentsHost): void {
+  catch(exception: HttpException | Error, host: ArgumentsHost): void {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse<Response>();
     const request = ctx.getRequest<Request>();

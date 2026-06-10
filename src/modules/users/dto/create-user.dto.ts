@@ -15,6 +15,6 @@ export class CreateUserDto {
   @IsDateString()
   dob!: string;
 
-  @IsPhoneNumber('VN')
+  @IsPhoneNumber()
   phone!: string;
 }

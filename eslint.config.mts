@@ -8,7 +8,7 @@ import { defineConfig } from 'eslint/config';
 
 export default defineConfig(
   {
-    ignores: ['eslint.config.mts', 'dist/**', 'node_modules/**'],
+    ignores: ['eslint.config.mts', 'dist/**', 'node_modules/**', 'src/generated/prisma/**'],
   },
   eslint.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
